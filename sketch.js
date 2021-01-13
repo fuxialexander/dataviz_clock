@@ -2,7 +2,6 @@ let arr = [];
 
 function setup() {
   createCanvas(160 * 6 + 10, 160 * 4 + 10);
-
   for (let i = 1; i < 70; i++) {
     arr.push(i);
   }
@@ -18,10 +17,6 @@ function draw() {
     for (let x = 0; x < 6; x++) {
       let xpos = x * squaresize + 10;
       let ypos = y * squaresize + 10;
-
-      let index = y * 6 + x; // find the index
-
-
       fill(255)
       stroke(0);
       rect(xpos, ypos, squaresize - 10, squaresize - 10);
@@ -56,8 +51,10 @@ function draw() {
 
 
   fill(255)
-  let s = (second()%4+60)
-  rect( s % 8 * minsquaresize + xmin+minsquaresize * 0.4 / 2, ~~(s / 8) * minsquaresize + ymin+minsquaresize * 0.4 / 2, 10,10, 20)
-  
+  if (second() % 60 == 0) {
+    console.log(minute())
+  }
 
+  let s = (second() % 4 + 60)
+  rect(s % 8 * minsquaresize + xmin + minsquaresize * 0.4 / 2, ~~(s / 8) * minsquaresize + ymin + minsquaresize * 0.4 / 2, 10, 10, 20)
 }
